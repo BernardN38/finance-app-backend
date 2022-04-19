@@ -1,7 +1,7 @@
-FROM golang:1.17-alpine AS builder
+FROM golang:1.18-alpine AS builder
 WORKDIR /app
 COPY . .
-RUN go build -o financeapp financeapp.go
+RUN go build -o financefirst financefirst.go
 
 
 
@@ -12,4 +12,4 @@ COPY --from=builder /app/build ./build
 
 EXPOSE 8080
 
-CMD ["/app/financeapp"]
+CMD ["/app/financefirst"]
