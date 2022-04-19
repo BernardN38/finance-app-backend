@@ -53,8 +53,8 @@ func GetUserProfile(c *gin.Context) {
 	db := db.DBConn
 	payload := c.MustGet(AuthorizationPayloadKey)
 	data := payload.(*token.Payload)
-	fmt.Println(data.Username)
+
 	db.Where("username = ?", data.Username).First(&user)
-	fmt.Println(user)
+
 	c.JSON(200, user)
 }

@@ -9,7 +9,7 @@ func SetupRouter() *gin.Engine {
 	router := gin.Default()
 
 	config := cors.DefaultConfig()
-	config.AllowOrigins = []string{"http://localhost:3000"}
+	config.AllowOrigins = []string{"http://localhost:3000", "http://192.168.0.11:3000", "*"}
 	config.AllowCredentials = true
 	router.Use(cors.New(config))
 

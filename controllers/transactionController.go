@@ -157,6 +157,7 @@ func GetTransactionsLimit(c *gin.Context) {
 
 	queryType := c.Query("type")
 	queryLimit := c.Query("limit")
+
 	userId := c.Param("userId")
 	if fmt.Sprintf("%v", user.UserId) != userId {
 		c.AbortWithStatusJSON(401, "mismatched user")

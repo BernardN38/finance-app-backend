@@ -43,12 +43,13 @@ func CheckPassword(password string, hashedPassword string) error {
 }
 
 func LoginUser(c *gin.Context) {
+	fmt.Println("loggin in")
 	var req loginUserRequest
 	var user models.User
 	db := db.DBConn
 	c.ShouldBind(&user)
 	c.ShouldBind(&req)
-
+	fmt.Println(user, req)
 	maker, err := token.NewPasetoMaker("lodrtnufepalofeiwnctvuqmifeasklo")
 	if err != nil {
 		fmt.Println(err)
@@ -76,10 +77,10 @@ func LoginUser(c *gin.Context) {
 	c.JSON(http.StatusOK, userResponse)
 }
 
-func ReadHeaders(c *gin.Context) {
+func TokenCheckin(c *gin.Context) {
 	payload := c.MustGet(AuthorizationPayloadKey)
 	data := payload.(*token.Payload)
-	fmt.Println(data.Username)
+	fmt.Println(data)
 	c.JSON(200, data)
 }
 

@@ -10,5 +10,5 @@ func main() {
 	r := routes.SetupRouter()
 	r.Use(static.Serve("/", static.LocalFile("./build", true)))
 	db.InitDb()
-	r.Run()
+	r.Run("0.0.0.0:8080")
 }
