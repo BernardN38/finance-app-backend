@@ -1,7 +1,7 @@
 FROM golang:1.17-alpine AS builder
 WORKDIR /app
 COPY . .
-RUN go build -o financefirst financefirst.go
+RUN go build -o financeapp financeapp.go
 
 
 
