@@ -12,4 +12,4 @@ COPY --from=builder /app/build ./build
 
 EXPOSE 8080
 
-CMD ["/app/financefirst"]
+CMD ["/app/financeapp"]
