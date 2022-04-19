@@ -16,5 +16,5 @@ func main() {
 	if port == "" {
 		port = "9000" // Default port if not specified
 	}
-	r.Run(port)
+	r.Run(":" + port)
 }
