@@ -29,7 +29,7 @@ func TestGetAllTransactions(t *testing.T) {
 	db.InitDb()
 
 	w := httptest.NewRecorder()
-	req, _ := http.NewRequest("GET", "/api/v1/transactions", nil)
+	req, _ := http.NewRequest("GET", "/api/v1/user/1/transactions", nil)
 	router.ServeHTTP(w, req)
 
 	assert.Equal(t, 200, w.Code)
@@ -45,7 +45,7 @@ func TestGetSignleTransaction(t *testing.T) {
 	db.InitDb()
 
 	w := httptest.NewRecorder()
-	req, _ := http.NewRequest("GET", "/api/v1/transactions/1", nil)
+	req, _ := http.NewRequest("GET", "/api/v1/user/1/transactions/1", nil)
 	router.ServeHTTP(w, req)
 
 	assert.Equal(t, 200, w.Code)
@@ -65,7 +65,7 @@ func TestGetMonthlySums(t *testing.T) {
 	types := []string{"deposit", "investments", "withdrawal", "retirement", "balance"}
 	for _, v := range types {
 		w := httptest.NewRecorder()
-		req, _ := http.NewRequest("GET", fmt.Sprintf("/api/v1/transactions/sum?type=%s", v), nil)
+		req, _ := http.NewRequest("GET", fmt.Sprintf("/api/v1/user/1/transactions/sum?type=%s", v), nil)
 		router.ServeHTTP(w, req)
 
 		assert.Equal(t, 200, w.Code)

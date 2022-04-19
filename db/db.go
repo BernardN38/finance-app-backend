@@ -11,7 +11,7 @@ import (
 var DBConn *gorm.DB
 
 func ConnetDb() {
-	dsn := "host=localhost user=eris dbname=finance_app port=5432 sslmode=disable"
+	dsn := "postgres://jxwsmvrzbtlahm:968955bbeb33eaf29375ad7f69a650544410349a772347c467734ee2c96072ba@ec2-34-194-158-176.compute-1.amazonaws.com:5432/danv5sg7puk1bd"
 	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	if err != nil {
 		log.Panic("could not open connection to database")
